@@ -1,0 +1,89 @@
+<head>
+		<title>Telefonanbietervergleich</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+			"use strict";
+			function fTelefonanbietervergleich() {
+
+			var vGrundgebuehrA;
+			var vGrundgebuehrB;
+			var vKostenProMinuteA;
+			var vKostenProMinuteB;
+			var vKritischeMinutenAnzahl;
+			var vMinutenanzahl;
+            var vtelefoneinheiten;
+            var vBesseresAngebot;
+            var vGesamtkostenA;
+            var vGesamtkostenB;
+            var vAusgabe;
+			
+		
+
+			vGrundgebuehrA = parseFloat(document.getElementById("idGrundgebuehrA").value);
+			vGrundgebuehrB = parseFloat(document.getElementById("idGrundgebuehrB").value);
+			
+			vKostenProMinuteA=parseFloat(document.getElementById("idKostenProMinuteA").value);
+			vKostenProMinuteB=parseFloat(document.getElementById("idKostenProMinuteB").value);
+
+			vAusgabe = "";
+			vAusgabe = vAusgabe + "<table border=1>";
+			vAusgabe = vAusgabe + "<tr><th>Telefoneinheiten</th><th>GesamtkostenA</th><th>GesamtkostenB</td><th>Besseres Angebot?</th></tr>";
+
+			
+			while (vMinutenanzahl <=200) {
+		
+				vKostenA = vMinutenAnzahl * vKostenProMinuteA + vGrundgebuehrA
+                vKostenB = vMinutenAnzahl * vKostenProMinuteB + vGrundgebuehrB
+
+				if (vG<0){
+				vAusgabe = vAusgabe + "<tr><td>" + vMinutenanzahl + "</td><td>" + "<tr><td>" + vtelefoneinheiten + "</td><td>" + vGesamtkostenA + " € " + "</td><td>" + vGesamtkostenB + " € " + "</td><td style=color:green" vBesseresAngebot + "!" </td></tr>";
+                }
+			
+			
+				else {
+                vAusgabe = vAusgabe + "<tr><td>" + vMinutenanzahl + "</td><td>" + "<tr><td>" + vtelefoneinheiten + "</td><td>"+ vGesamtkostenA +  " € " + "</td><td>" + vGesamtkostenB + " € " +  "</td><td>" vBesseresAngebot "</td></tr>";
+            }
+
+			
+					vMinutenAnzahl = vMinutenAnzahl + 10;
+			}
+
+			 vKritischeMinutenAnzahl=vGrundgebuehrA-vGrundgebuehrB/vKostenProMinuteB-vKostenProMinuteA
+			
+			
+			 
+			
+			
+			
+			v=v;
+			vAusgabe=vAusgabe + "<table>"
+			vAusgabe = vAusgabe + "Break-Even-Point: ";
+			
+			
+			vAusgabe = vAusgabe + vBEP + " Stück </br>";
+			vAusgabe = vAusgabe + "---------------------------------------</br>"
+			vAusgabe = vAusgabe + "Gewinnschwelle: " ;
+			
+			 
+			vAusgabe = vAusgabe + vGewinnschwelle.toFixed(2) + " € </br>";
+			vAusgabe = vAusgabe + "---------------------------------------</br>"
+			
+			vAusgabe = vAusgabe + "</table></br>";
+			
+					
+			document.getElementById("idAusgabe").innerHTML = vAusgabe;
+		
+		}
+
+		</script></head>
+
+
+
+
+	<body>
+		<h1>Telefonanbietervergleich</h1>
+	Grundgebür Anbieter A: <input id="idKV" value="4.50" size="6">
+		Kosten pro tel. Minute: <input id="idKF" value="12800" size="6"><br/><br/>
+		Grundgebür Anbieter B: <input id="idProduktionsmenge" value="20000" size="6">
+		Kosten pro tel. Minute: <input id="idPreis" value="6.00" size="6">
+		<button onclick="fTelefonanbietervergleich();">Kalkulieren</button><br><br>
+        <div id="idAusgabe"></div>
